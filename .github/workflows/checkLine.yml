@@ -29,10 +29,14 @@ jobs:
       # Runs a single command using the runners shell
       - name: line check
         run: |
-          if ['expr cat *.* | wc -l % 2' -eq 0]
+          line=$(cat *.md | wc -l)
+          echo "your line count: $line"
+          if [ `expr $line % 2` -eq 0 ]
           then
+              echo "this file line is even"
               exit 0
           else
+              echo "this file line is odd"
               exit 1
           fi
 
