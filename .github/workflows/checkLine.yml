@@ -30,8 +30,10 @@ jobs:
       - name: line check
         run: |
           line=$(cat * | wc -l)
-          echo $GITHUB_EVENT_PATH
-          echo $GITHUB_WORKFLOW
+          echo $GITHUB_PATH
+          echo $GITHUB_ACTION_PATH
+          echo $GITHUB_WORKSPACE
+          echo $RUNNER_TEMP
           echo "your line count: $line"
           if [ `expr $line % 2` -eq 0 ]
           then
