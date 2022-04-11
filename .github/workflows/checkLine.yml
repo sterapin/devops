@@ -25,18 +25,18 @@ jobs:
       # Runs a single command using the runners shell
       - name: line check
         run: |
-          
           filelist=`ls ${{ github.workspace }}`
           echo $filelist | while read line ;
-          fline=$(cat $line | wc -l)
-          echo "your line count: $fline"
-          if [ `expr $fline % 2` -eq 0 ]
-          then
-              echo "this file line is even"
-              exit 0
-          else
-              echo "this file line is odd"
-              exit 1
-          fi
-
+          do
+            fline=$(cat $line | wc -l)
+            echo "your line count: $fline"
+            if [ `expr $fline % 2` -eq 0 ]
+            then
+                echo "this file line is even"
+                exit 0
+            else
+                echo "this file line is odd"
+                exit 1
+            fi
+          done
 
