@@ -25,9 +25,7 @@ jobs:
       # Runs a single command using the runners shell
       - name: line check
         run: |
-          filelist=`ls ${{ github.workspace }} -ltr | tail -1`
-          echo $filelist | while read line ;
-          do
+          line=`ls ${{ github.workspace }} -ltr | tail -1`
           fline=`cat -- $line | sed '/^$/d' | wc -l`
           echo "your line count: $fline"
           if [ `expr $fline % 2` -eq 0 ]
@@ -38,7 +36,4 @@ jobs:
               echo "this file line is odd"
               exit 1
           fi
-          
-          done
     
-
