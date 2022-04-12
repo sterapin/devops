@@ -28,7 +28,7 @@ jobs:
           filelist=`ls ${{ github.workspace }} -ltr | tail -1`
           echo $filelist | while read line ;
           do
-          fline=`cat $line | sed '/^$/d' | wc -l`
+          fline=`cat -- $line | sed '/^$/d' | wc -l`
           echo "your line count: $fline"
           if [ `expr $fline % 2` -eq 0 ]
           then
