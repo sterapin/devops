@@ -23,8 +23,8 @@ resource "aws_instance" "app_server" {
   }
 }
 
-resource "aws_security_group" "allow_ssh" {
-  name        = "allow_ssh"
+resource "aws_security_group" "allow_tls" {
+  name        = "allow_tls"
   description = "Allow SSH"
   
   ingress {
@@ -44,6 +44,6 @@ resource "aws_security_group" "allow_ssh" {
   }
   
   tags = {
-    Name = "allow_ssh"
+    Name = "allow_tls"
   }
 }
